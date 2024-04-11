@@ -3,7 +3,7 @@ import { ChangeEvent, ChangeEventHandler, FormEventHandler, useState } from 'rea
 import { useAppDispatch, useAppSelector } from '../../../store/helpers.ts';
 import { addCommentAction } from '../../../store/slices/offers/thunk.ts';
 import { offersSelectors } from '../../../store/slices/offers';
-import { RequestStatus } from '../../../constants';
+import { RequestStatus, ReviewLength } from '../../../constants';
 import { ReviewType } from '../../../types';
 import { useDetailOffer } from '../../../hooks';
 
@@ -78,8 +78,8 @@ function ReviewForm() {
           className="reviews__submit form__submit button"
           type="submit"
           disabled={
-            review.comment.length < 50
-            || review.comment.length > 300
+            review.comment.length < ReviewLength.Min
+            || review.comment.length > ReviewLength.Max
             || review.rating <= 0
             || isLoading
           }

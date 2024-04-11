@@ -8,11 +8,11 @@ import { sortOffers } from '../../../utils';
 type OfferCardsListProps = {
   offers: OfferData[];
   city: CitiesType;
-  handleCardHover: (id: string) => void;
-  handleCardLeave: () => void;
+  onCardHover: (id: string) => void;
+  onCardLeave: () => void;
 };
 
-function OffersListWithSort({offers, city, handleCardHover, handleCardLeave}: OfferCardsListProps) {
+function OffersListWithSort({offers, city, onCardHover, onCardLeave}: OfferCardsListProps) {
 
   const [currentSort , setCurrentSort] = useState<SortTypesType>(SortTypes.Popular);
 
@@ -28,8 +28,8 @@ function OffersListWithSort({offers, city, handleCardHover, handleCardLeave}: Of
       <OffersList
         offers={sortOffers(currentSort, offers)}
         classNames={'cities__places-list places__list tabs__content'}
-        handleHoverOnCard={handleCardHover}
-        handleCardLeave={handleCardLeave}
+        onHoverOnCard={onCardHover}
+        onCardLeave={onCardLeave}
         placeType={'cities'}
         hasVerticalLayout
       />

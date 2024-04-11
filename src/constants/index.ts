@@ -7,6 +7,12 @@ import { URL_MARKER_DEFAULT } from './map-icons.ts';
 import { BASE_URL } from './api.ts';
 import { RequestStatus } from './request-status.ts';
 import { Housing } from './housing.ts';
+import {
+  MAX_GALLERY_IMAGES_PER_PAGE,
+  MAX_REVIEWS_PER_PAGE,
+  MAX_NEARBY_OFFER_PER_PAGE,
+} from './limits.ts';
+import { ReviewLength } from './review.ts';
 
 export {
   Cities,
@@ -19,4 +25,8 @@ export {
   BASE_URL,
   RequestStatus,
   Housing,
+  MAX_GALLERY_IMAGES_PER_PAGE,
+  MAX_REVIEWS_PER_PAGE,
+  MAX_NEARBY_OFFER_PER_PAGE,
+  ReviewLength,
 };

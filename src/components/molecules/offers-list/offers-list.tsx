@@ -4,8 +4,8 @@ import { OfferCardStyleClassType, OfferData } from '../../../types';
 type OffersListProps = {
   offers: OfferData[];
   classNames: string;
-  handleHoverOnCard?: (id: string) => void;
-  handleCardLeave?: () => void;
+  onHoverOnCard?: (id: string) => void;
+  onCardLeave?: () => void;
   placeType: OfferCardStyleClassType;
   hasVerticalLayout: boolean;
 };
@@ -18,8 +18,8 @@ function OffersList(props: OffersListProps) {
           <OfferCard
             {...place}
             key={place.id}
-            onMouseEnter={props.handleHoverOnCard}
-            onMouseLeave={props.handleCardLeave}
+            onMouseEnter={props.onHoverOnCard}
+            onMouseLeave={props.onCardLeave}
             placeType={props.placeType}
             hasVerticalLayout={props.hasVerticalLayout}
           />

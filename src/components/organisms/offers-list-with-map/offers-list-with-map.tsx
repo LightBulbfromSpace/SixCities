@@ -38,8 +38,8 @@ function OffersListWithMap({offersFromCurrentCity, currentCity}: OffersListWithM
       <OffersListWithSort
         city={currentCity}
         offers={offersFromCurrentCity}
-        handleCardHover={handleHoverOnCard}
-        handleCardLeave={handleCardLeave}
+        onCardHover={handleHoverOnCard}
+        onCardLeave={handleCardLeave}
       />
       <div className="cities__right-section">
         <Map

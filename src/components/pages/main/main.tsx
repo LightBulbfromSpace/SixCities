@@ -54,7 +54,7 @@ function MainPage(): ReactElement | null {
       <Header isLogoActive/>
       <main className={mainClassName}>
         <h1 className="visually-hidden">Cities</h1>
-        <CityTabs onCityChanged={handleCitySelect} currTab={currentCity}/>
+        <CityTabs onCityChange={handleCitySelect} currTab={currentCity}/>
         {
           requestStatus === RequestStatus.Loading
             ? <Loader/>

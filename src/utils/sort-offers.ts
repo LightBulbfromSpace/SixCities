@@ -7,10 +7,10 @@ export function sortOffers(sortType: SortTypesType, offers: OfferData[]) {
     case SortTypes.Popular:
       return offers;
     case SortTypes.PriceASC:
-      return offers.toSorted((a, b) => a.price - b.price);
+      return [...offers].sort((a, b) => a.price - b.price);
     case SortTypes.PriceDESC:
-      return offers.toSorted((a, b) => b.price - a.price);
+      return [...offers].sort((a, b) => b.price - a.price);
     case SortTypes.Rating:
-      return offers.toSorted((a, b) => b.rating - a.rating);
+      return [...offers].sort((a, b) => b.rating - a.rating);
   }
 }

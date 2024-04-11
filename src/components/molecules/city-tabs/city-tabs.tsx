@@ -5,14 +5,14 @@ import { TabButton } from '../../atoms';
 import { createMainRouteWithCity, isCity } from '../../../utils';
 
 type CityTabsProps = {
-  onCityChanged: (city: CitiesType) => void;
+  onCityChange: (city: CitiesType) => void;
   currTab: CitiesType;
 };
 
-function CityTabs({onCityChanged, currTab}: CityTabsProps): ReactElement {
+function CityTabs({onCityChange, currTab}: CityTabsProps): ReactElement {
   const handleTabChange = useCallback((city: string) => {
     if (isCity(city)) {
-      onCityChanged(city);
+      onCityChange(city);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -1,7 +1,7 @@
 import { OffersStateType } from './index.ts';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { CommentData, OfferData, OfferDetailData } from '../../../types';
-import { RequestStatus } from '../../../constants';
+import { MAX_NEARBY_OFFER_PER_PAGE, RequestStatus } from '../../../constants';
 
 const setOffersFulfilled = (state: OffersStateType, action: PayloadAction<OfferData[]>) => {
   state.offers = action.payload;
@@ -90,12 +90,14 @@ const setDetailOfferRejected = (state: OffersStateType) => {
 };
 
 const setNearbyOffersFulfilled = (state: OffersStateType, action: PayloadAction<OfferData[]>) => {
-  const nearby = action.payload.slice(0, 3);
+  const nearby = action.payload.slice(0, MAX_NEARBY_OFFER_PER_PAGE);
+  const existingOfferIds = new Set(state.offers.map(({ id }) => id));
   const nearbyIds: Array<OfferData['id']> = [];
 
   nearby.forEach((offer) => {
-    if (state.offers.findIndex(({ id }) => offer.id === id) === -1) {
+    if (!existingOfferIds.has(offer.id)) {
       state.offers.push(offer);
+      existingOfferIds.add(offer.id); // Prevents adding duplicates within the same action
     }
 
     nearbyIds.push(offer.id);
